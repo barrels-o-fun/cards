@@ -15,7 +15,7 @@
 def create_deck( num_range=13, deck_face=%w[Sp He Cl Di] )
    # Set up variables
    debug=0
-   unsorted=[]
+   sorted=[]
    # Card variables - change these to change deck
    card_suit= deck_face
    card_num=[]
@@ -31,9 +31,9 @@ def create_deck( num_range=13, deck_face=%w[Sp He Cl Di] )
        a1=[] 
        a1.push card_suit[suit_count] , card_num[num_count]
        puts "a1 now", a1, "\n"  unless debug==0
-       unsorted.push a1[0] + a1[1].to_s
-       puts "unsorted now", unsorted, "\n" unless debug==0
-       puts "unsorted count now", unsorted.count, "\n" unless debug==0
+       sorted.push a1[0] + a1[1].to_s
+       puts "sorted now", sorted, "\n" unless debug==0
+       puts "sorted count now", sorted.count, "\n" unless debug==0
        puts "num_count now", num_count, "\n" unless debug==0    
        num_count+=1
        gets unless debug==0
@@ -42,7 +42,7 @@ def create_deck( num_range=13, deck_face=%w[Sp He Cl Di] )
      num_count=0
      suit_count+=1
    end
-   return unsorted
+   return sorted
  end
   
   deck1=create_deck()
