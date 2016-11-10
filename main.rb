@@ -43,7 +43,7 @@ def create_deck( prefix=%w[Sp He Cl Di], suffix_range=10 )
      while suffix_count < card_num.count
        a1=[] 
        a1.push card_suit[prefix_count] , card_num[suffix_count]
-       deck.push a1[0] + a1[1].to_s
+       deck.push a1[0] + "-" + a1[1].to_s
        suffix_count+=1
      end   
      suffix_count=0
