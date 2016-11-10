@@ -20,7 +20,7 @@ $testing=false
 #
 #
 # Creates a sorted deck
-def create_deck( prefix=%w[Sp He Cl Di], suffix_range=5 )
+def create_deck( prefix=%w[Sp He Cl Di], suffix_range=10 )
    # Set up empty deck
    deck=[]
    # Card variables
@@ -30,6 +30,8 @@ def create_deck( prefix=%w[Sp He Cl Di], suffix_range=5 )
    num_range=suffix_range
    # This generates card_num array from a range, in this case numbers
    card_num_gen=(1..num_range).each { |code| card_num.push code }
+   # Adds Jack, Queen and King to the array for looping over
+   card_num.push("J","Q","K")
    # a1 is a temporary array for the loop to function   
    a1=[]
    # Initial setting of variables for loop
