@@ -4,7 +4,7 @@
 #
 # Author: Gareth Warren
 #
-# Version 0.1
+# Version 0.5
 #
    
 # Create sorted deck of cards (using a standard 52 card deck, no jokers)
