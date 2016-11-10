@@ -9,16 +9,18 @@
    
 # Create sorted deck of cards (using a standard 52 card deck, no jokers)
    
-   
-def create_deck()
+# Creates a sorted deck of cards
+#  - num_range is maximum number on card
+#  - deck face is an array of prefixes
+def create_deck( num_range=13, deck_face=%w[Sp He Cl Di] )
    # Set up variables
    debug=0
    unsorted=[]
    # Card variables - change these to change deck
-   card_suit= %w[Sp He Cl Di]
+   card_suit= deck_face
    card_num=[]
    # This generate card_num from a range, in this case numbers
-   card_num_gen=(1..13).each { |code| card_num.push code }
+   card_num_gen=(1..num_range).each { |code| card_num.push code }
    a1=[]
    
    select_num=0
@@ -44,4 +46,10 @@ def create_deck()
  end
   
   deck1=create_deck()
-  puts deck1.to_s
+  puts deck1.to_s, "\n"
+  deck1=create_deck(10)
+  puts deck1.to_s, "\n"
+  deck1=create_deck(5, %w[A B C D])
+  puts deck1.to_s, "\n"
+  deck1=create_deck(5, %w[Spades Hearts Clubs Diamonds])
+  puts deck1.to_s, "\n"
