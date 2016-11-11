@@ -65,6 +65,8 @@ def shuffle_deck( deck )
   return shuf_deck
 end
 
+# Deals a deck, player number and number of cards dealt can be called in function
+# names cannot currently be changed from PlayerX
 def deal( deck, num_players = 4, cards_dealt = 7 )
    # Initialize arrays
    player_count=[]  
@@ -83,7 +85,6 @@ def deal( deck, num_players = 4, cards_dealt = 7 )
     dealt_count+=1
    end
    return player_decks
-
 end
 
 
