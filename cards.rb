@@ -6,24 +6,15 @@
 #
 # Version 1.0
 #
-    
-# Create sorted deck of cards (using a standard 52 card deck, no jokers)
-    
 # Creates a sorted deck of cards
-#    - prefix is the suit of the card
-#    - suffix_range defines the maximum number per suit
 #
-#
-#  Docs
-#    create_deck - Creates a new ordered deck - returns an array
-#    shuffle_deck - Shuffles the deck, requires an array, returns an array
-#    deal - Deals the deck, requires an array, returns a hash
-#    display_deck - Displays a player's cards, requires a hash
-#    test - Runs through a test of the above and displays Player 1's deck
-
 module Cards
 
-  # Creates a sorted deck
+  #    create_deck - Creates a new ordered deck - returns an array
+  #    shuffle_deck - Shuffles the deck, requires an array, returns an array
+  #    deal - Deals the deck, requires an array, returns a hash
+  #    display_deck - Displays a player's cards, requires a hash
+  #    test - Runs through a test of the above and displays Player 1's deck
   def Cards.create_deck( prefix = %w[Sp He Cl Di], suffix_range = 10 )
     # Set up empty deck
     deck=[]
