@@ -6,15 +6,17 @@
 #
 # Version 1.0
 #
-# Creates a sorted deck of cards
 #
+#    create_deck - Creates a new ordered deck - returns an array
+#    shuffle_deck - Shuffles the deck, requires an array, returns an array
+#    deal - Deals the deck, requires an array, returns a hash
+#    display_deck - Displays a player's cards, requires a hash
+#    test - Runs through a test of the above and displays Player 1's deck
 module Cards
-
-  #    create_deck - Creates a new ordered deck - returns an array
-  #    shuffle_deck - Shuffles the deck, requires an array, returns an array
-  #    deal - Deals the deck, requires an array, returns a hash
-  #    display_deck - Displays a player's cards, requires a hash
-  #    test - Runs through a test of the above and displays Player 1's deck
+  
+  # Creates a deck, defaults will create a full 52 card deck.
+  # - Prefix is the card suit.
+  # - Suffix_range is the highest numbered card (not including face cards)
   def Cards.create_deck( prefix = %w[Sp He Cl Di], suffix_range = 10 )
     # Set up empty deck
     deck=[]
@@ -46,8 +48,8 @@ module Cards
     return deck
   end
 
-  # Shuffles the cards from a provided deck, simply iterates over the existing array 
-  # and randomises the order into a new array.
+  # Shuffles the cards from a provided deck.
+  # - Iterates over the existing array and randomises the order into a new array.
   def Cards.shuffle_deck( deck )
     unshuf_deck=deck
     shuf_deck=[]
@@ -60,8 +62,9 @@ module Cards
     return shuf_deck
   end
 
-  # Deals a deck, player number and number of cards dealt can be called in function
-  # names cannot currently be changed from PlayerX
+  # Deals a deck.
+  # - Number of players & number of cards dealt can be called in function.
+  # - Names cannot currently be changed from PlayerX
   def Cards.deal( deck, num_players = 4, cards_dealt = 7 )
      # Initialize arrays
      player_count=[]  
@@ -81,8 +84,8 @@ module Cards
      return player_decks
   end
 
-  # Displays players deck
-  # - expects a dictionary containing all players decks
+  # Displays players deck.
+  # - Expects a hash containing all players decks
   def Cards.display_deck( deck, player_name = "Player1" )
     play_deck=deck[player_name]
     print player_name, ":\n"
@@ -106,7 +109,8 @@ module Cards
     end
   end
 
-  # Diagnostic test 
+  # Diagnostic test.
+  # - Runs through other functions and displays Player's deck
   def Cards.test
     puts "Creating Deck"
     deck1=Cards.create_deck()
