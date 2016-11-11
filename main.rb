@@ -16,9 +16,9 @@
 #
 # Global variables
 
-$testing=true
-#
-#
+$testing=false
+
+
 # Creates a sorted deck
 def create_deck( prefix = %w[Sp He Cl Di], suffix_range = 10 )
   # Set up empty deck
@@ -64,6 +64,29 @@ def shuffle_deck( deck )
   end
   return shuf_deck
 end
+
+def deal( deck, num_players = 4, cards_dealt = 7 )
+   # Initialize arrays
+   player_count=[]  
+   player_names=[]
+   player_decks={}
+   # Generate player names (using PlayerX for now)
+   player_count_gen=num_players.times { |i| player_count.push i+1 } 
+   player_count.each { |i| player_names.push "Player" + i.to_s }
+   player_decks["play_deck"]=deck
+   player_names.each { |i| player_decks[i]=[] }
+   # Set up loop variables
+   dealt_count=0
+   puts player_decks.to_s
+   while dealt_count < cards_dealt
+    player_names.each { |i| player_decks[i] = player_decks[i] + [deck.pop] }
+    dealt_count+=1
+   end
+   return player_decks
+
+end
+
+
   
 if $testing == true
   deck1=create_deck()+create_deck()
@@ -78,6 +101,18 @@ if $testing == true
 else
   puts "Creating Deck"
   deck1=create_deck()
+  puts "Shuffling Deck"
   shuf_deck1=shuffle_deck(deck1)
   puts shuf_deck1.to_s, "\n"
+  puts "Dealing deck"
+  players_a=deal(shuf_deck1, 4, 3)
+  puts players_a["Player1"].to_s
+  puts players_a["Player2"].to_s
+  puts players_a["play_deck"].to_s
+  puts players_a["play_deck"].length
+  players_b=deal(players_a["play_deck"], 4, 3)
+  puts players_b["Player1"].to_s
+  puts players_b["Player2"].to_s
+  puts players_b["play_deck"].to_s
+  puts players_b["play_deck"].length
 end
